@@ -101,7 +101,7 @@ function getResultInfo($score, $total) {
         // Perfect score
         $result['image'] = 'images/results/1.jpg';
         $result['message'] =
-            '🌟 <strong>SWEET VICTORY CHAMPION!</strong><br>' .
+            '🏆 <strong>SWEET VICTORY CHAMPION!</strong><br>' .
             'The entire Bubble Bowl erupts in applause.<br>' .
             'Squilliam faints.<br>' .
             'Squidward cries tears of joy.<br>' .
