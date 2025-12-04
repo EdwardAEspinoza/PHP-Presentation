@@ -156,7 +156,7 @@ function playcpugame($game){
     $player;
     $playername;
     $mark;
-    $draw = false;
+    $draw = false;//automatically reset to false
 
     $ingame = true;
 
