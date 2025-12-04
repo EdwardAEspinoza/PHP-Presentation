@@ -4,7 +4,7 @@
    - Type ``php -S 0.0.0.0:8000``
    - Go to *PORTS* and open 8000
 
-**2. On Local Machine:**
+**2. On Local Machine (Windows):**
    - Open *Command Prompt*
    - Go to ``Ayleen-Trivia-Game`` folder location
    - Run ``php -S localhost:8000``
