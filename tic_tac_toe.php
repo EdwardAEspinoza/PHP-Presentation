@@ -23,6 +23,10 @@ class Game {
         return $this->playerturn;
     }//gets current player
 
+    public function setPlayer($num){
+        $this->playerturn = $num;
+    }//sets current player
+
     public function printBoard(){
         echo "  | 0 | 1 | 2 |\n";
         echo "  |___________|\n";
@@ -107,6 +111,8 @@ function playgame($game){
     echo "\nResetting board..\n";
     $game->resetBoard();
 
+    $game->setPlayer(0);//resets so player 1 always starts first
+
     while($ingame){
         $draw = $game->checkDraw();
         if($draw){
@@ -135,7 +141,6 @@ function playgame($game){
         echo "Choose a col: ";
         $col = readline();
         $game->pickspot($mark, $row, $col);
-        //$game->checkWinner();
 
         if($game->checkWinner()){
             echo "\n";
@@ -151,12 +156,14 @@ function playcpugame($game){
     $player;
     $playername;
     $mark;
-    $draw = false;
+    $draw = false;//automatically reset to false
 
     $ingame = true;
 
     echo "\nResetting board..\n";
-    $game->resetBoard();
+    $game->resetBoard();//clears board each game
+
+    $game->setPlayer(0);//resets so player 1 always starts first
 
     while($ingame){
         $draw = $game->checkDraw();
@@ -164,28 +171,28 @@ function playcpugame($game){
             echo "Game ends in a draw\n";
             echo "\n";
             $ingame = false;
-            break;
+            break;//makes sure game ends if board is full
         }
         $player = $game->getPlayer();
         if($player == 0){
             $playername = "Player 1";
         }else{
-            $playername = "Player 2";
+            $playername = "Player 2";//sets up player name for messages
         }
         echo "\n" . $playername . "'s turn\n";
         if($player == 0){
             $mark = "X";
         }else{
-            $mark = "O";
+            $mark = "O";//sets up the mark for each player for easy readability
         }
 
 
         $game->printBoard();
         echo "Choose a row: ";
         if($player == 1){
-            $row = random_int(0, 2);
+            $row = random_int(0, 2);//cpu chooses random num
         }else{
-            $row = readline();
+            $row = readline();//player 1 manually inputs num
         }
         echo "Choose a col: ";
         if($player == 1){
@@ -193,14 +200,13 @@ function playcpugame($game){
         }else{
              $col = readline();
         }
-        $game->pickspot($mark, $row, $col);
-        //$game->checkWinner();
+        $game->pickspot($mark, $row, $col);//adds to the chosen spot
 
         if($game->checkWinner()){
             echo "\n";
-            $ingame = false;
+            $ingame = false;//checks if someone won
         }
-        $game->switchPlayer();
+        $game->switchPlayer();//switches player turns
     }
 }
 
@@ -224,14 +230,14 @@ function main(){
         switch(readline()){
             case 1:
                 playcpugame($game);
-                break;
+                break;//plays solo game
             case 2:
                 playgame($game);
-                break;
+                break;//plays duo game
             case 3:
                 echo "Bye bye\n";
                 $playing = false;
-                break;
+                break;//ends program
         }
     }
 }
