@@ -8,5 +8,5 @@
    - Open *Command Prompt*
    - Go to ``Ayleen-Trivia-Game`` folder location
    - Run ``php -S localhost:8000``
-   - Open ``http://localhost:8000/trivia.php`` on Chrome or similar
+   - Open ``http://localhost:8000/index.php`` on Chrome or similar
 
